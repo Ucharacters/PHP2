@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <script src="./gherkin.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.7.0/codemirror.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.7.0/codemirror.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.7.0/addon/lint/lint.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.7.0/mode/gherkin/gherkin.js"  charset="UTF-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.7.0/addon/lint/lint.min.js"></script>
+	<script src="./gherkin-lint.js"></script>
+  <title>Gherkin-linter</title>
+</head>
+<body>
+
+
+	<textarea id="textarea" cols="80" rows="60" style="font-size: 50px;">
+#language: ru
+Функционал: запустите простой тест
+	Сценарий: запустите простой тест
+		Допустим у нас установлено поведение
+		Если мы внедряем тест
+		Тогда вы протестируете это для нас!
+  </textarea>
+  <script>
+  CodeMirror.fromTextArea(document.getElementById('textarea'), {
+		mode: "gherkin",
+		lineNumbers: true,
+    gutters: ["CodeMirror-lint-markers", "CodeMirror-foldgutter"],
+    lint: true,
+    foldGutter: true
+  });
+  </script>
+</body>
+</html>
